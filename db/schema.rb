@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_31_162717) do
+ActiveRecord::Schema.define(version: 2021_08_31_175626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "books", force: :cascade do |t|
-    t.string "title"
+    t.string "name"
     t.string "author"
-    t.string "description"
-    t.string "isbn"
+    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "price"
+    t.decimal "price", precision: 5, scale: 2
+    t.boolean "in_stock", default: true
   end
 
 end
